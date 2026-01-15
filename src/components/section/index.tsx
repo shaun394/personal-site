@@ -24,7 +24,7 @@ export default function Section({
         "scroll-mt-24 md:scroll-mt-28",
 
         // panel = frosted black (About, Projects, etc.)
-        isPanel ? "bg-black/45 backdrop-blur-md" : "bg-transparent",
+        isPanel ? "bg-black/70 backdrop-blur-md" : "bg-transparent",
       ].join(" ")}
     >
       <div className="mx-auto max-w-5xl px-4 py-14">{children}</div>
