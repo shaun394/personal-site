@@ -63,19 +63,6 @@ export default function HomepageHero({ data }: Props) {
         </div>
 
         {/* Stats */}
-        <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
-          {data.stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-white/10 bg-white/5 p-4"
-            >
-              <div className="text-xs text-zinc-400">{s.label}</div>
-              <div className="mt-1 text-sm font-medium text-zinc-100">
-                {s.value}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

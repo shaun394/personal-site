@@ -1,0 +1,12 @@
+.footer {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.footer-glow {
+  background: radial-gradient(
+    circle at top,
+    rgb(var(--primary) / 0.16),
+    transparent 55%
+  );
+}

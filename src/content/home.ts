@@ -1,31 +1,61 @@
-export type HeroCta = { label: string; href: string; variant?: "primary" | "ghost" };
-
 export type HomeContent = {
   hero: {
     pill: string;
     title: string;
     highlight: string;
     subtitle: string;
-    ctas: HeroCta[];
-    stats: { label: string; value: string }[];
+    ctas: { label: string; href: string; variant?: "primary" | "ghost" }[];
   };
+  about: {
+    title: string;
+    body: string;
+  };
+  projects: {
+  title: string;
+  items: {
+    name: string;
+    description: string;
+    tech: string[];
+    href?: string;
+  }[];
+};
 };
 
 export const homeContent: HomeContent = {
   hero: {
-    pill: "Available for internships / junior roles",
-    title: "Building clean, modern",
-    highlight: "web & app experiences.",
+    pill: "Red & black | minimal | data-driven",
+    title: "Hi, I'm Shaun.",
+    highlight: "I build modern software.",
     subtitle:
-      "I focus on React + TypeScript frontends, solid architecture, and smooth UI. This site is fully data-driven so updating content stays painless.",
+      "React + TypeScript frontends, strong architecture, and clean UI. This site is structured to stay simple as it grows.",
     ctas: [
-      { label: "View Projects", href: "#projects", variant: "primary" },
-      { label: "Contact", href: "#contact", variant: "ghost" },
-    ],
-    stats: [
-      { label: "Focus", value: "Full-Stack" },
-      { label: "Stack", value: "React / TS" },
-      { label: "Deploy", value: "Vercel / Docker" },
+      { label: "See Links", href: "#links", variant: "primary" },
+      { label: "About Me", href: "#about", variant: "ghost" },
     ],
   },
+  about: {
+    title: "About",
+    body:
+      "I’m a developer focused on building practical, well-structured projects. I care about clean code, readable UI, and shipping features that work.",
+  },
+  projects: {
+  title: "Projects",
+  items: [
+    {
+      name: "Scheduler App",
+      description: "Task scheduling app with a clean UI and practical workflows.",
+      tech: ["Kotlin", "Android", "UI"],
+    },
+    {
+      name: "Secure Messaging App",
+      description: "Messaging app focused on privacy, structure, and usability.",
+      tech: ["Kotlin", "Compose", "Firebase"],
+    },
+    {
+      name: "Personal Website",
+      description: "This website — data-driven sections with reusable components.",
+      tech: ["React", "TypeScript", "Tailwind"],
+    },
+  ],
+},
 };
