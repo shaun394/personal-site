@@ -14,7 +14,7 @@ export default function Section({ id, variant = "base", children }: Props) {
       id={id}
       className={[
         "border-t border-white/10",
-        isPanel ? "bg-white/[0.03]" : "bg-transparent",
+        isPanel ? "bg-black/45 backdrop-blur-md" : "bg-transparent",
       ].join(" ")}
     >
       <div className="mx-auto max-w-5xl px-4 py-14">{children}</div>

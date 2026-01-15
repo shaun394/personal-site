@@ -1,39 +1,4 @@
-/* ================================
-   HOMEPAGE HERO – LOCAL STYLES
-   ================================ */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Glow blobs */
-.hero-glow-primary {
-  background: rgb(var(--primary) / 0.18);
-}
-
-.hero-glow-accent {
-  background: rgb(var(--accent) / 0.14);
-}
-
-/* Subtle grid overlay */
-.hero-grid {
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.10) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.10) 1px,
-      transparent 1px
-    );
-  background-size: 56px 56px;
-  opacity: 0.12;
-}
-
-/* Title underline shimmer */
+/* Minimal underline shimmer */
 .hero-underline {
   position: absolute;
   bottom: -0.5rem;
@@ -42,7 +7,7 @@
   height: 2px;
   overflow: hidden;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .hero-underline::after {
@@ -53,20 +18,10 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.55),
     transparent
   );
-  animation: hero-shimmer 3.5s linear infinite;
-}
-
-/* Animations */
-@keyframes hero-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  animation: hero-shimmer 3.2s linear infinite;
 }
 
 @keyframes hero-shimmer {
@@ -76,8 +31,4 @@
   100% {
     transform: translateX(130%);
   }
-}
-
-.hero-float {
-  animation: hero-float 6s ease-in-out infinite;
 }

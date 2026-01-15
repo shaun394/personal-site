@@ -7,19 +7,8 @@ type Props = {
 
 export default function HomepageHero({ data }: Props) {
   return (
-    <section className="hero border-b border-white/10 bg-bg">
-      {/* Background effects */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="hero-glow-primary hero-float absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-3xl" />
-        <div className="hero-glow-accent hero-float absolute -bottom-56 left-12 h-[520px] w-[520px] rounded-full blur-3xl" />
-        <div className="hero-glow-primary hero-float absolute -bottom-40 right-10 h-[420px] w-[420px] rounded-full blur-3xl opacity-75" />
-      </div>
-
-      {/* Grid overlay */}
-      <div className="hero-grid pointer-events-none absolute inset-0" />
-
-      {/* Content */}
-      <div className="relative mx-auto max-w-5xl px-4 py-20 md:py-28">
+    <section id="top" className="relative">
+      <div className="mx-auto max-w-5xl px-4 py-24 md:py-32">
         {/* Pill */}
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200">
           <span className="h-2 w-2 rounded-full bg-accent" />
@@ -36,11 +25,11 @@ export default function HomepageHero({ data }: Props) {
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-zinc-300 md:text-lg">
+        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-zinc-200/90 md:text-lg">
           {data.subtitle}
         </p>
 
-        {/* CTAs */}
+        {/* Buttons */}
         <div className="mt-8 flex flex-wrap gap-3">
           {data.ctas.map((cta) => {
             const primary = cta.variant === "primary";
@@ -52,8 +41,8 @@ export default function HomepageHero({ data }: Props) {
                   "rounded-xl px-4 py-2 text-sm transition",
                   "border border-white/10",
                   primary
-                    ? "bg-primary/25 hover:bg-primary/40"
-                    : "bg-white/5 hover:bg-white/10",
+                    ? "bg-primary/25 hover:bg-primary/40 text-fg"
+                    : "bg-white/5 hover:bg-white/10 text-zinc-200",
                 ].join(" ")}
               >
                 {cta.label}
@@ -61,8 +50,6 @@ export default function HomepageHero({ data }: Props) {
             );
           })}
         </div>
-
-        {/* Stats */}
       </div>
     </section>
   );

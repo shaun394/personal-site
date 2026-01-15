@@ -1,0 +1,198 @@
+/* ================================
+   ABOUT – LIVE CARDS + BUTTON
+   ================================ */
+
+/* Live border card */
+.live-card {
+  position: relative;
+  background: rgb(0 0 0 / 0.30);
+  border: 1px solid rgb(255 255 255 / 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+  overflow: hidden;
+}
+
+.live-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  pointer-events: none;
+
+  /* Thin energetic streak */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(var(--primary) / 0.30) 35%,
+    rgb(var(--accent) / 0.22) 50%,
+    rgb(var(--primary) / 0.30) 65%,
+    transparent 100%
+  );
+
+  filter: blur(10px);
+  opacity: 0;
+  transform: translateX(-120%);
+}
+
+.live-card:hover {
+  transform: translateY(-2px);
+  background: rgb(0 0 0 / 0.40);
+  border-color: rgb(255 255 255 / 0.16);
+}
+
+.live-card:hover::before {
+  opacity: 1;
+  animation: live-swipe 520ms ease-out forwards;
+}
+
+@keyframes live-swipe {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(120%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+/* Chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  color: rgb(245 245 245 / 0.92);
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.10);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  background: rgb(255 255 255 / 0.10);
+  border-color: rgb(255 255 255 / 0.16);
+}
+
+.chip-ghost {
+  background: rgb(var(--primary) / 0.10);
+  border-color: rgb(var(--primary) / 0.18);
+}
+
+/* CV button – base */
+.cv-live-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background: rgb(var(--primary) / 0.22);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.cv-live-btn:hover {
+  transform: translateY(-2px);
+  background: rgb(var(--primary) / 0.32);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.06) inset,
+    0 18px 40px rgb(var(--primary) / 0.18);
+}
+
+/* CV button – premium variant (optional)
+   Use by adding class: cv-live-btn--premium */
+.cv-live-btn--premium {
+  border: 1px solid rgb(255 255 255 / 0.14);
+  background: linear-gradient(
+    135deg,
+    rgb(var(--primary) / 0.28),
+    rgb(0 0 0 / 0.25)
+  );
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.06) inset,
+    0 18px 40px rgb(0 0 0 / 0.45);
+}
+
+.cv-live-btn--premium:hover {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--primary) / 0.38),
+    rgb(0 0 0 / 0.25)
+  );
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.10) inset,
+    0 22px 55px rgb(var(--primary) / 0.12),
+    0 22px 55px rgb(0 0 0 / 0.55);
+}
+
+/* shimmer sweep */
+.cv-live-btn::before {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.18),
+    transparent
+  );
+  transform: translateX(-60%) rotate(10deg);
+  opacity: 0;
+}
+
+.cv-live-btn:hover::before {
+  opacity: 1;
+  animation: cv-shimmer 0.85s ease forwards;
+}
+
+@keyframes cv-shimmer {
+  to {
+    transform: translateX(60%) rotate(10deg);
+  }
+}
+
+.cv-live-btn-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.cv-arrow {
+  display: inline-block;
+  transition: transform 150ms ease;
+}
+
+.cv-live-btn:hover .cv-arrow {
+  transform: translateX(4px);
+}
+
+/* Profile image ring + crop */
+.profile-ring-lg {
+  height: 108px;
+  width: 108px;
+  padding: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    135deg,
+    rgb(var(--primary) / 0.90),
+    rgb(var(--accent) / 0.55),
+    rgb(255 255 255 / 0.10)
+  );
+}
+
+.profile-img-lg {
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+  object-position: center 18%; /* tweak: 10%–30% */
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background: rgb(0 0 0 / 0.35);
+}

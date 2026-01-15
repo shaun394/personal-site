@@ -1,5 +1,13 @@
 import HomePage from "./pages/home";
 
 export default function App() {
-  return <HomePage />;
+  return (
+    <>
+      {/* Global animated background */}
+      <div className="app-background" />
+
+      {/* App content */}
+      <HomePage />
+    </>
+  );
 }

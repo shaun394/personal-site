@@ -18,9 +18,69 @@
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   background: rgb(var(--bg));
   color: rgb(var(--fg));
 }
+
+/* ================================
+   GLOBAL ANIMATED BACKGROUND
+   ================================ */
+
+.app-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      1200px circle at 10% 10%,
+      rgb(var(--primary) / 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px circle at 90% 20%,
+      rgb(var(--accent) / 0.10),
+      transparent 55%
+    ),
+    radial-gradient(
+      1000px circle at 50% 90%,
+      rgb(var(--primary) / 0.08),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(var(--bg)),
+      rgb(var(--bg))
+    );
+
+  animation: bg-drift 30s ease-in-out infinite;
+}
+
+@keyframes bg-drift {
+  0% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      50% 100%,
+      0% 0%;
+  }
+  50% {
+    background-position:
+      20% 10%,
+      80% 30%,
+      60% 80%,
+      0% 0%;
+  }
+  100% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      50% 100%,
+      0% 0%;
+  }
+}
+
