@@ -5,6 +5,7 @@ export type HomeContent = {
     highlight: string;
     subtitle: string;
     ctas: { label: string; href: string; variant?: "primary" | "ghost" }[];
+    stats?: { label: string; value: string }[];
   };
 
   about: {
@@ -45,17 +46,26 @@ export type HomeContent = {
 };
 
 export const homeContent: HomeContent = {
-  hero: {
-    pill: "Red & black | minimal | data-driven",
-    title: "Hi, I'm Shaun.",
-    highlight: "I build modern software.",
-    subtitle:
-      "React + TypeScript frontends, strong architecture, and clean UI. This site is structured to stay simple as it grows.",
-    ctas: [
-      { label: "See Links", href: "#links", variant: "primary" },
-      { label: "About Me", href: "#about", variant: "ghost" },
-    ],
-  },
+hero: {
+  pill: "Full-stack & mobile developer",
+
+  title: "Hi, I'm Shaun.",
+  highlight: "I build modern software.",
+
+  subtitle:
+    "Full-stack developer with a strong focus on clean architecture, practical UI, and reliable delivery — from web applications to Android.",
+
+  ctas: [
+    { label: "View projects", href: "#projects", variant: "primary" },
+    { label: "Get in touch", href: "#links", variant: "ghost" },
+  ],
+
+  stats: [
+    { label: "Focus", value: "Full-stack + Mobile" },
+    { label: "Frontend", value: "React + TypeScript" },
+    { label: "Mobile", value: "Kotlin / Compose" },
+  ],
+},
   about: {
     title: "About",
     summary:
@@ -86,7 +96,7 @@ export const homeContent: HomeContent = {
         { label: "Learning", items: ["Python", "C"] },
         {
           label: "Frameworks & Tools",
-          items: ["React", "Next.js", "Node.js", "Android Studio", "Jetpack Compose", "Firebase (Auth/Firestore)", "Git & GitHub"],
+          items: ["React", "Next.js", "Node.js", "Android Studio", "Jetpack Compose", "Firebase (Auth/Firestore)", "Git & GitHub", "REST API's", "CI/CD pipelines", "Tailwind"],
         },
         { label: "Design & CMS", items: ["Figma (UI/UX)", "WordPress"] },
         { label: "Databases", items: ["MySQL", "PostgreSQL", "phpMyAdmin"] },

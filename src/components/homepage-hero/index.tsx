@@ -1,56 +1,103 @@
-import type { HomeContent } from "../../content/home";
 import "./hero.css";
 
-type Props = {
-  data: HomeContent["hero"];
+type HeroCta = {
+  label: string;
+  href: string;
+  variant?: "primary" | "ghost";
 };
 
-export default function HomepageHero({ data }: Props) {
+type HeroStat = {
+  label: string;
+  value: string;
+};
+
+export type HomepageHeroData = {
+  pill: string;
+  title: string;
+  highlight: string;
+  subtitle: string;
+  ctas: HeroCta[];
+  stats?: HeroStat[];
+};
+
+export default function HomepageHero({ data }: { data: HomepageHeroData }) {
   return (
-    <section id="top" className="relative">
-      <div className="mx-auto max-w-5xl px-4 py-24 md:py-32">
-        {/* Pill */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200">
-          <span className="h-2 w-2 rounded-full bg-accent" />
-          {data.pill}
-        </div>
+    <section className="hero">
+      {/* Content */}
+      <div className="hero-inner">
+        <div className="hero-grid">
+          {/* Left: Copy */}
+          <div className="hero-copy">
+            <div className="hero-pill">{data.pill}</div>
 
-        {/* Title */}
-        <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight md:text-6xl">
-          {data.title}{" "}
-          <span className="relative inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            {data.highlight}
-            <span className="hero-underline" />
-          </span>
-        </h1>
+            <h1 className="hero-title">
+              Hi, I'm Shaun.
+              <br />
+              <span className="live-red-text">I build modern software.</span>
+            </h1>
 
-        {/* Subtitle */}
-        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-zinc-200/90 md:text-lg">
-          {data.subtitle}
-        </p>
+            <p className="hero-subtitle">{data.subtitle}</p>
 
-        {/* Buttons */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          {data.ctas.map((cta) => {
-            const primary = cta.variant === "primary";
-            return (
-              <a
-                key={cta.label}
-                href={cta.href}
-                className={[
-                  "rounded-xl px-4 py-2 text-sm transition",
-                  "border border-white/10",
-                  primary
-                    ? "bg-primary/25 hover:bg-primary/40 text-fg"
-                    : "bg-white/5 hover:bg-white/10 text-zinc-200",
-                ].join(" ")}
-              >
-                {cta.label}
-              </a>
-            );
-          })}
+            <div className="hero-ctas">
+              {data.ctas.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  className={
+                    c.variant === "primary" ? "hero-btn hero-btn-primary" : "hero-btn hero-btn-ghost"
+                  }
+                >
+                  {c.label}
+                </a>
+              ))}
+            </div>
+
+            {/* quick stats row */}
+            {data.stats?.length ? (
+              <div className="hero-stats">
+                {data.stats.map((s) => (
+                  <div key={s.label} className="hero-stat">
+                    <div className="hero-stat-label">{s.label}</div>
+                    <div className="hero-stat-value">{s.value}</div>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          {/* Right: subtle “signal” panel */}
+          <div className="hero-panel">
+            <div className="hero-panel-card">
+              <div className="hero-panel-kicker">Now</div>
+              <div className="hero-panel-title">Building & iterating</div>
+              <div className="hero-panel-text">
+                I like projects with clean structure, strong UI polish, and a real deployment pipeline.
+              </div>
+
+              <div className="hero-panel-badges">
+                <span className="hero-badge">React</span>
+                <span className="hero-badge">TypeScript</span>
+                <span className="hero-badge">Tailwind</span>
+                <span className="hero-badge">Vercel</span>
+              </div>
+            </div>
+
+            <div className="hero-panel-mini">
+              <div className="hero-mini">
+                <div className="hero-mini-label">Preferred workflow</div>
+                <div className="hero-mini-value">Git • small commits • steady progress</div>
+              </div>
+              <div className="hero-mini">
+                <div className="hero-mini-label">Style</div>
+                <div className="hero-mini-value">Minimal • high-contrast • red accents</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* subtle bottom divider */}
+      <div className="hero-divider" />
     </section>
   );
 }
