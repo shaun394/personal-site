@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   GLOBAL THEME TOKENS
+   ================================ */
+:root {
+  --bg: 8 8 8;
+  --fg: 245 245 245;
+
+  --primary: 220 38 38;  /* red */
+  --accent: 248 113 113;
+
+  --card: 255 255 255;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
