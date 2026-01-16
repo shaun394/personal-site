@@ -188,7 +188,7 @@ export default function ContactSection() {
               <div className="contact-info-row">
                 <div className="contact-info-label">Email</div>
                 <a className="contact-info-link" href="mailto:swanepoelshaun16@gmail.com">
-                  shaun.swanepoel.dev@gmail.com
+                  swanepoelshaun16@gmail.com
                 </a>
               </div>
 
