@@ -5,8 +5,7 @@ export const site = {
   name: "Shaun Swanepoel",
   nav: [
     { label: "Home", href: "/" },
-    { label: "About", href: "#about" },
-    { label: "Links", href: "#links" },
+    { label: "Contact", href: "/contact" },
   ] satisfies NavItem[],
   socials: [
     { label: "GitHub", href: "https://github.com/shaun394" },

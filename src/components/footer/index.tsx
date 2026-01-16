@@ -29,18 +29,13 @@ export default function Footer() {
             <div className="footer-col-title">Navigate</div>
             <ul className="footer-links">
               <li>
-                <a className="footer-link" href="#projects">
-                  Projects
+                <a className="footer-link" href="/">
+                  Home
                 </a>
               </li>
               <li>
-                <a className="footer-link" href="#about">
-                  About
-                </a>
-              </li>
-              <li>
-                <a className="footer-link" href="#links">
-                  Links
+                <a className="footer-link" href="/contact">
+                  Contact
                 </a>
               </li>
               <li>
