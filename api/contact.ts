@@ -120,6 +120,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     return res.status(200).json({ ok: true });
   } catch (err) {
+    console.error("CONTACT_SEND_FAILED", {
+      message: err instanceof Error ? err.message : String(err),
+    });
+
     return res.status(500).json({ ok: false, error: "Failed to send email. Please try again." });
   }
 }
