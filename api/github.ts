@@ -8,7 +8,13 @@ type RepoOut = {
   homepage: string | null;
   stargazers_count: number;
   forks_count: number;
+
+  // ✅ use pushed_at for “Updated …” to match GitHub repo list
+  pushed_at: string;
+
+  // keep updated_at if you ever want it later
   updated_at: string;
+
   language: string | null;
   languagesTop: { name: string; percent: number }[];
   recentCommits30d: number;
@@ -85,7 +91,11 @@ async function repoToOut(r: any, token?: string): Promise<RepoOut> {
     homepage: r.homepage,
     stargazers_count: r.stargazers_count,
     forks_count: r.forks_count,
+
+    // ✅ match GitHub “Updated …” (based on push time)
+    pushed_at: r.pushed_at,
     updated_at: r.updated_at,
+
     language: r.language,
     languagesTop,
     recentCommits30d,
@@ -113,7 +123,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // 1) fetch your repos
     const reposResp = await fetch(
-      `${GH_API}/users/${username}/repos?per_page=100&sort=updated`,
+      // ✅ pushed matches GitHub “Updated …” list behavior better than updated
+      `${GH_API}/users/${username}/repos?per_page=100&sort=pushed`,
       { headers: ghHeaders(token) }
     );
 

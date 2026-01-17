@@ -10,7 +10,13 @@ type Repo = {
   homepage: string | null;
   stargazers_count: number;
   forks_count: number;
+
+  // ✅ use pushed_at for “Updated …” to match GitHub
+  pushed_at: string;
+
+  // keep if you want later
   updated_at: string;
+
   language: string | null;
   languagesTop: { name: string; percent: number }[];
   recentCommits30d: number;
@@ -156,7 +162,8 @@ export default function ProjectsSection() {
                     <p className="project-desc">{r.description ?? "No description yet."}</p>
                   </div>
 
-                  <div className="project-updated">Updated {timeAgo(r.updated_at)}</div>
+                  {/* ✅ use pushed_at to match GitHub */}
+                  <div className="project-updated">Updated {timeAgo(r.pushed_at)}</div>
                 </div>
 
                 <div className="project-stats">
@@ -193,15 +200,15 @@ export default function ProjectsSection() {
                   <div className="project-langbar">
                     <div className="project-bar">
                       {r.languagesTop.map((l) => (
-                      <div
-                        key={l.name}
-                        className="project-bar-seg"
-                        style={{
-                          width: `${Math.max(l.percent || 0, 2)}%`,
-                          ["--p" as any]: l.percent ?? 0,
-                        }}
-                        title={`${l.name}${l.percent ? ` · ${l.percent}%` : ""}`}
-                      />
+                        <div
+                          key={l.name}
+                          className="project-bar-seg"
+                          style={{
+                            width: `${Math.max(l.percent || 0, 2)}%`,
+                            ["--p" as any]: l.percent ?? 0,
+                          }}
+                          title={`${l.name}${l.percent ? ` · ${l.percent}%` : ""}`}
+                        />
                       ))}
                     </div>
 
