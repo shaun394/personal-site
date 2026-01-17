@@ -31,14 +31,8 @@
 }
 
 @keyframes heroIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-pill {
@@ -72,18 +66,6 @@
   font-size: clamp(38px, 5.2vw, 64px);
 }
 
-.hero-title-base {
-  display: block;
-  color: rgb(250 250 250 / 0.95);
-}
-
-.hero-title-highlight {
-  display: block;
-  margin-top: 8px;
-  color: rgb(var(--primary) / 0.92);
-  text-shadow: 0 0 34px rgb(var(--primary) / 0.22);
-}
-
 .hero-subtitle {
   margin-top: 16px;
   max-width: 58ch;
@@ -110,9 +92,7 @@
   transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.hero-btn:hover {
-  transform: translateY(-1px);
-}
+.hero-btn:hover { transform: translateY(-1px); }
 
 .hero-btn-primary {
   background: rgb(var(--primary) / 0.25);
@@ -172,99 +152,13 @@
 /* right side panel */
 .hero-panel {
   animation: heroIn2 520ms ease-out both;
+  width: 100%;
+  max-width: 100%;
 }
 
 @keyframes heroIn2 {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-panel-card {
-  border-radius: 22px;
-  border: 1px solid rgb(255 255 255 / 0.10);
-  background: rgb(0 0 0 / 0.28);
-  padding: 18px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 24px 70px rgb(0 0 0 / 0.55);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-panel-card::before {
-  content: "";
-  position: absolute;
-  inset: -60% -40%;
-  background: radial-gradient(circle at 30% 30%, rgb(var(--primary) / 0.18), transparent 45%);
-  pointer-events: none;
-}
-
-.hero-panel-kicker {
-  font-size: 11px;
-  color: rgb(161 161 170 / 0.95);
-}
-
-.hero-panel-title {
-  margin-top: 6px;
-  font-size: 16px;
-  font-weight: 700;
-  color: rgb(244 244 245 / 0.95);
-}
-
-.hero-panel-text {
-  margin-top: 8px;
-  font-size: 13px;
-  line-height: 1.65;
-  color: rgb(228 228 231 / 0.82);
-}
-
-.hero-panel-badges {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.hero-badge {
-  border-radius: 9999px;
-  padding: 6px 10px;
-  font-size: 11px;
-  border: 1px solid rgb(255 255 255 / 0.10);
-  background: rgb(255 255 255 / 0.06);
-  color: rgb(244 244 245 / 0.9);
-}
-
-.hero-panel-mini {
-  margin-top: 12px;
-  display: grid;
-  gap: 10px;
-}
-
-.hero-mini {
-  border-radius: 18px;
-  border: 1px solid rgb(255 255 255 / 0.10);
-  background: rgb(0 0 0 / 0.22);
-  padding: 14px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.hero-mini-label {
-  font-size: 11px;
-  color: rgb(161 161 170 / 0.95);
-}
-
-.hero-mini-value {
-  margin-top: 5px;
-  font-size: 12.5px;
-  color: rgb(244 244 245 / 0.88);
-  font-weight: 600;
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* divider */
@@ -272,41 +166,126 @@
   margin: 56px auto 0;
   max-width: 1100px;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgb(255 255 255 / 0.10),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.10), transparent);
 }
 
-/* ================================
-   LIVE RED GRADIENT TEXT
-   ================================ */
-
+/* LIVE RED TEXT */
 .live-red-text {
-  background: linear-gradient(
-    90deg,
-    rgb(220 38 38),
-    rgb(239 68 68),
-    rgb(220 38 38)
-  );
+  background: linear-gradient(90deg, rgb(220 38 38), rgb(239 68 68), rgb(220 38 38));
   background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-
   animation: red-flow 4s ease-in-out infinite;
 }
 
 @keyframes red-flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================================
+   REACTOR
+   ================================ */
+.reactor {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 22px;
+  border: 1px solid rgb(255 255 255 / 0.10);
+  background: rgb(0 0 0 / 0.28);
+  box-shadow: 0 24px 70px rgb(0 0 0 / 0.55);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (min-width: 980px) {
+  .reactor { height: 460px; }
+}
+
+.reactor:hover { border-color: rgb(255 255 255 / 0.14); }
+
+.reactor-top {
+  position: absolute;
+  inset: 14px 14px auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.reactor-kicker {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(161 161 170 / 0.9);
+}
+
+.reactor-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* FLOW UI (main focus, centered) */
+.reactor-flow {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 52%;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  border-radius: 20px;
+  border: 1px solid rgb(255 255 255 / 0.10);
+  background: rgb(0 0 0 / 0.28);
+  padding: 16px 14px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.45);
+}
+
+.flow-step {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgb(255 255 255 / 0.10);
+  background: rgb(255 255 255 / 0.05);
+  padding: 14px 12px;
+
+  color: rgb(244 244 245 / 0.88);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.flow-step + .flow-step { margin-top: 10px; }
+
+.flow-step:hover {
+  transform: translateY(-1px);
+  border-color: rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.07);
+}
+
+.flow-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.flow-step.is-active {
+  border-color: rgb(var(--primary) / 0.35);
+  background: rgb(var(--primary) / 0.12);
+  box-shadow: 0 18px 40px rgb(var(--primary) / 0.10);
 }
